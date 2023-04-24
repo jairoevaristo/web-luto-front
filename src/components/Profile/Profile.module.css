@@ -1,0 +1,15 @@
+.input {
+  @apply w-[150px] h-[150px] rounded-[100px] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] opacity-0 cursor-pointer;
+};
+
+.image {
+  @apply w-full h-[150px] flex items-center justify-center mb-[15px];
+};
+
+.avatar {
+  @apply w-auto h-auto relative m-[0_auto];
+};
+
+.icon {
+  @apply rounded-[100px] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%];
+};
