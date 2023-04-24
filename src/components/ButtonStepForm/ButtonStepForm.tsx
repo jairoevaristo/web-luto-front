@@ -11,7 +11,7 @@ export const ButtonStepForm: React.FC = () => {
     <div className="flex items-center gap-6">
       <button className="text-gray-500">
         <RenderConditional condition={currentStep === 0}>
-          <Link to="/login">Voltar para login</Link>
+          <Link to="/">Voltar para login</Link>
         </RenderConditional>
 
         <RenderConditional condition={currentStep !== 0}>
