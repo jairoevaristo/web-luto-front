@@ -1,4 +1,4 @@
 export enum PagesRoutes {
-  signin = "/login",
+  signin = "/",
   signup = "/cadastro",
 };
