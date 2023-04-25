@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 
 import LogoImg from "../../../assets/icon/LogoIcon.svg";
 
@@ -62,3 +63,16 @@ export const SignUp: React.FC = () => {
     </div>
   );
 };
+=======
+import styles from "./SignUp.module.css";
+import { Register } from "../../../components";
+
+export const SignUp: React.FC = () => {
+
+  return (
+    <div className={styles.container}>
+      <Register/>
+    </div>
+  );
+};
+>>>>>>> 78e0cbc (feat: Subindo tela de login e cadastro)

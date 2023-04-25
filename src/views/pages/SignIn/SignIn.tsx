@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -117,3 +118,17 @@ export const SignIn: React.FC = () => {
     </div>
   );
 };
+=======
+import React from "react";
+import styles from "./SignIn.module.css";
+import { Acess } from "../../../components";
+
+export const SignIn: React.FC = () => {
+
+  return (
+    <div className={styles.container}>
+      <Acess/>
+    </div>
+  );
+};
+>>>>>>> 78e0cbc (feat: Subindo tela de login e cadastro)
