@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, BrowserRouter, Route, Navigate } from "react-router-dom";
+import { Routes, BrowserRouter, Route } from "react-router-dom";
 import { ListProducts, PagesRoutes, ProductDetails, SignIn, SignUp } from "../../views";
 import { PrivateRouter } from "../PrivateRouter";
 

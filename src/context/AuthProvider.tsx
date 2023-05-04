@@ -1,21 +1,27 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { AuthContext } from "./AuthContext";
-import { useGetUser } from "../hooks/useGetUser";
 
 export const useAuth = () => {
   return React.useContext(AuthContext);
 };
 
-type AuthProviderProps = {
-  children: React.ReactNode;
-};
-
-export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const { data  } = useGetUser();
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [isAuthenticated, setAuthenticated] = React.useState(false);
 
+  const values = useMemo(
+    () => ({
+      isAuthenticated,
+      setAuthenticated
+    }), [
+      isAuthenticated,
+      setAuthenticated
+    ]
+  );
+
   return (
-    <AuthContext.Provider value={{ isAuthenticated, setAuthenticated }}>
+    <AuthContext.Provider value={values}>
       {children}
     </AuthContext.Provider>
   );

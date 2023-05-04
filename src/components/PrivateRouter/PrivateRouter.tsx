@@ -1,6 +1,4 @@
 import { Navigate } from "react-router-dom";
-import { useGetUser } from "../../hooks/useGetUser";
-import { useToast } from "../../hooks/useToast";
 import { useAuth } from "../../context/AuthProvider";
 
 export const PrivateRouter = ({ children }: { children: JSX.Element }) => {
