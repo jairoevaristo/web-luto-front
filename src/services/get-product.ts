@@ -1,5 +1,5 @@
 import { getProductByIdEndpoint } from "../config/endpoints/product";
-import { ApiProductAxiosRequest, api } from "../lib/axios";
+import { api } from "../lib/axios";
 import { ResponseGetProduct } from "../types/ResponseGetProduct";
 
 export interface GetProductRequest {

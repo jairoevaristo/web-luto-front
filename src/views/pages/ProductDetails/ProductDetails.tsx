@@ -1,6 +1,5 @@
 import React from "react";
 import { Header } from "../../../components/Header";
-import { useGetUser } from "../../../hooks/useGetUser";
 import { useGetProductById } from "../../../hooks/useGetProductById";
 import { PageLoader, ProductDescription } from "../../../components";
 

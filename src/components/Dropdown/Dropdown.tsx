@@ -1,12 +1,8 @@
 import React from "react";
 import * as Popover from "@radix-ui/react-popover";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
-import { Navigate, useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthProvider";
 
 export const Dropdown: React.FC = () => {
-  //const navigate = useNavigate();
-
   const onClickProfileButton = () => {
     console.log("Perfil")
   };

@@ -1,7 +1,6 @@
 import React from "react";
 import { Header } from "../../../components/Header";
 import { ProductCard } from "../../../components/ProductCard";
-import { useGetUser } from "../../../hooks/useGetUser";
 import { useGetAllProducts } from "../../../hooks/useGetAllProducts";
 import { useNavigate } from "react-router-dom";
 import { ResponseGetProduct } from "../../../types/ResponseGetProduct";
