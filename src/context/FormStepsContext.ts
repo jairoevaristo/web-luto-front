@@ -22,7 +22,7 @@ interface FormStepsContextData {
   currentStep: number;
   handleNextStep: () => void;
   handlePrevStep: () => void;
-  handleOnChangeTextInput: (data: any) => void
+  handleOnChangeTextInput: (data: any) => void;
 }
 
 export const formStepsContext = createContext({} as FormStepsContextData);
