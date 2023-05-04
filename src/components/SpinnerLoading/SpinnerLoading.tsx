@@ -13,10 +13,12 @@ export const SpinnerLoading: React.FC<SpinnerLoadingProps> = ({
     LARGE: "w-16 h-16",
   };
 
+  const color = (theme === "light" ? "border-[#fff]" : `border-[#333]`);
+
   return (
     <div
       style={{ borderTopColor: "transparent" }}
-      className={`${sizeSpinner[size]} border-2 ${theme === "light" ? "border-[#fff]" : `border-[#333]`} border-solid rounded-full animate-spin`}
+      className={`${sizeSpinner[size]} border-2 ${color} border-solid rounded-full animate-spin`}
     />
   );
 };
