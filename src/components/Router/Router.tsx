@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
-import { PagesRoutes, SignIn, SignUp } from "../../views";
+import { ListProducts, PagesRoutes, SignIn, SignUp } from "../../views";
 
 export const Router: React.FC = () => {
   return (
@@ -13,6 +13,10 @@ export const Router: React.FC = () => {
         <Route
           path={PagesRoutes.signup}
           element={<SignUp/>}
+        />
+        <Route
+          path={PagesRoutes.listProducts}
+          element={<ListProducts/>}
         />
       </Routes>
     </BrowserRouter>
