@@ -1,14 +1,37 @@
 import React from "react";
-import { Header, ProductCard } from "../../../components";
+import { Header } from "../../../components/Header";
+import { ProductCard } from "../../../components/ProductCard";
+import { useGetUser } from "../../../hooks/useGetUser";
+import { useGetAllProducts } from "../../../hooks/useGetAllProducts";
+import { useNavigate } from "react-router-dom";
+import { ResponseGetProduct } from "../../../types/ResponseGetProduct";
+import { PageLoader } from "../../../components";
 
 export const ListProducts: React.FC = () => {
+  const navigate = useNavigate();
+  
+  const { data, isLoading } =
+    useGetAllProducts();
 
   return (
-    <div className="bg-slate-100 flex justify-center w-screen h-auto min-h-screen">
-      <Header/>
-      <div className="grid grid-cols-[1fr_1fr_1fr_1fr] gap-[20px] mt-[100px] mb-[20px]">
-        <ProductCard price={3000} name={"Urna de Luxo"} img={"https://static.wixstatic.com/media/a18fc7_311aba460e4648e4903d2f2f22a13212~mv2.png/v1/fill/w_600,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/a18fc7_311aba460e4648e4903d2f2f22a13212~mv2.png"}/>
+    <PageLoader condition={!isLoading}>
+      <div className="bg-slate-100 flex justify-center w-screen h-auto min-h-screen">
+        <Header/>
+        <div className="grid grid-cols-[1fr_1fr_1fr_1fr] gap-[20px] mt-[100px] mb-[20px]">
+          {data?.productList.map(
+            (product: ResponseGetProduct["product"]) => (
+              <div key={product.id}>
+                <ProductCard
+                  name={product.name}
+                  price={product.price}
+                  img={product.image}
+                  onClick={() => navigate("/produto/" + product.id)}
+                />
+              </div>
+            )
+          )}
+        </div>
       </div>
-    </div>
+    </PageLoader>
   );
 };

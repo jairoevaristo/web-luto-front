@@ -1,1 +1,0 @@
-export { Acess } from "./Acess";

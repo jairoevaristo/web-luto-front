@@ -8,7 +8,7 @@ import {
   EyeIcon,
   EyeSlashIcon,
 } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import logoImg from "../../../assets/icon/LogoIcon.svg";
 
@@ -19,12 +19,14 @@ import { useLoginUser } from "../../../hooks/useLoginUser";
 import { LoginUserRequest } from "../../../services/login-user";
 import { RenderConditional } from "../../../components";
 import { SpinnerLoading } from "../../../components/SpinnerLoading/SpinnerLoading";
+import { getAuthorization } from "../../../lib/axios";
 
 export const SignIn: React.FC = () => {
   const { handleSubmit, control, setValue } = useForm({
     resolver: yupResolver(signinSchemaValidator),
   });
 
+  const navigate = useNavigate();
   const [userLoginData, setUserLoginData] = useState<LoginUserRequest>({} as LoginUserRequest)
   const [showPassword, setShowPassword] = useState(false);
   
@@ -44,6 +46,14 @@ export const SignIn: React.FC = () => {
     }
   }, [userLoginData])
 
+  //Autenticação Básica
+  useEffect(() => {
+    if(data) {
+      getAuthorization(data.entity.token);
+      navigate("/produtos");
+    }
+  }, [data])
+
   useEffect(() => {
     if (isError) {
       setValue('email', '');
@@ -57,8 +67,8 @@ export const SignIn: React.FC = () => {
   }, [isError]);
 
   return (
-    <div className="bg-slate-100 w-full h-screen flex justify-center items-center">
-      <div className="bg-white w-[34vw] h-[70vh] rounded-lg shadow-xl p-5">
+    <div className="bg-slate-100 w-full min-h-screen flex justify-center items-center">
+      <div className="bg-white min-w-[34vw] h-auto rounded-lg shadow-xl p-5 m-[25px_0]">
         <div className="flex flex-col items-start px-8 py-4">
           <img src={logoImg} />
           <div className="font-normal mt-5">
@@ -101,7 +111,7 @@ export const SignIn: React.FC = () => {
           <button className="bg-[#333] p-4 text-white rounded-[4px] hover:opacity-90 transition-opacity mt-2 flex items-center justify-center gap-2">
             Fazer login
             <RenderConditional condition={isLoading}>
-              <SpinnerLoading size="SMALL" />
+              <SpinnerLoading theme="light" size="SMALL" />
             </RenderConditional>
           </button>
 

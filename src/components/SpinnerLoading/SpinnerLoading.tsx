@@ -1,11 +1,11 @@
 interface SpinnerLoadingProps {
   size?: "SMALL" | "MEDIUM" | "LARGE";
-  color?: string;
+  theme?: "light" | "dark";
 }
 
 export const SpinnerLoading: React.FC<SpinnerLoadingProps> = ({
-  color,
-  size = "SMALL",
+  theme = "light",
+  size = "SMALL"
 }) => {
   const sizeSpinner = {
     SMALL: "w-6 h-6",
@@ -16,7 +16,7 @@ export const SpinnerLoading: React.FC<SpinnerLoadingProps> = ({
   return (
     <div
       style={{ borderTopColor: "transparent" }}
-      className={`${sizeSpinner[size]} border-2 border-${color} border-solid rounded-full animate-spin`}
+      className={`${sizeSpinner[size]} border-2 ${theme === "light" ? "border-[#fff]" : `border-[#333]`} border-solid rounded-full animate-spin`}
     />
   );
 };
