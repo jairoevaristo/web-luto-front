@@ -4,15 +4,15 @@ import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
 export const Dropdown: React.FC = () => {
   const onClickProfileButton = () => {
-    console.log("Perfil")
+    console.log("Perfil");
   };
 
   const onClickMyShoppingButton = () => {
-    console.log("Minhas Compras")
+    console.log("Minhas Compras");
   };
 
   const onClickLogoutButton = () => {
-    console.log("Sair")
+    location.reload();
   };
 
   const buttonList = [
@@ -34,7 +34,7 @@ export const Dropdown: React.FC = () => {
             <div className="flex flex-col gap-[10]">
               {buttonList.map((button) => (
                 <div key={button.id} className="p-[5px_0] bg-white cursor-pointer hover:bg-[#f2f2f2]" onClick={button.onClick}>
-                  <h3 className="p-[0_10px] font-[600]">{button.name}</h3>
+                  <h3 className="p-[0_10px] font-normal">{button.name}</h3>
                 </div>
               ))}
             </div>

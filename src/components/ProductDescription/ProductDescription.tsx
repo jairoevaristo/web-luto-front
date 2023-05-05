@@ -24,8 +24,8 @@ export const ProductDescription: React.FC<ProductDescriptionProps> = ({
   const [ isDetails, setDetails ] = React.useState(false);
 
   return (
-    <div className="grid grid-cols-[1fr_1fr] gap-[20px] mt-[130px] mb-[20px] relative">
-      <Link className="absolute top-[-45px] left-[0px]" to="#" onClick={() => window.history.back()}>
+    <div className="grid grid-cols-[1fr_1fr] gap-[20px] mt-[130px] mb-[20px] relative px-5">
+      <Link className="absolute top-[-45px] left-[20px]" to="#" onClick={() => window.history.back()}>
         <ArrowSmallLeftIcon className="text-[#333] w-8 hover:opacity-[0.9]"/>
       </Link>
       <div className="aspect-[1/1] max-w-[500px] bg-white flex justify-center items-center rounded-[10px] overflow-hidden">

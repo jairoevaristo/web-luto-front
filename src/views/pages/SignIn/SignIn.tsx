@@ -46,7 +46,6 @@ export const SignIn: React.FC = () => {
     }
   }, [userLoginData])
 
-  //Autenticação Básica
   useEffect(() => {
     if(data) {
       getAuthorization(data.entity.token);
