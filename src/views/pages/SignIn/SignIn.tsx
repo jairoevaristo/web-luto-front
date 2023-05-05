@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import styles from "./SignIn.module.css";
-import { Acess } from "../../../components";
-
-export const SignIn: React.FC = () => {
-
-  return (
-    <div className={styles.container}>
-      <Acess/>
-    </div>
-  );
-};
-=======
 import React, { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -131,4 +117,3 @@ export const SignIn: React.FC = () => {
     </div>
   );
 };
->>>>>>> 680798d (finished multi step form)
