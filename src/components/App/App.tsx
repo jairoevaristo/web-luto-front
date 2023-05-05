@@ -1,12 +1,15 @@
 import React from "react";
+
 import { Router } from "../Router";
-import { ValueProvider } from "../../context";
+import { FormStepsProvider } from "../../context/FormStepsProvider";
+import { AuthProvider } from "../../context/AuthProvider";
 
 export const App: React.FC = () => {
-
   return (
-    <ValueProvider>
-      <Router/>
-    </ValueProvider>
+    <AuthProvider>
+      <FormStepsProvider>
+          <Router />
+      </FormStepsProvider>
+    </AuthProvider>
   );
 };

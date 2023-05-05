@@ -4,8 +4,10 @@ import React, {
   ReactNode,
   useState,
 } from "react";
+import InputMask from "react-input-mask";
 
-export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface TextInputMaskProps
+  extends InputHTMLAttributes<HTMLInputElement> {
   offset?: boolean;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
@@ -14,9 +16,10 @@ export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   onClickRightIcon?: () => void;
   onClickLeftIcon?: () => void;
   className?: string;
+  mask: string;
 }
 
-export const TextInput: React.FC<TextInputProps> = forwardRef(
+export const TextInputMask: React.FC<TextInputMaskProps> = forwardRef(
   (
     {
       error,
@@ -26,6 +29,7 @@ export const TextInput: React.FC<TextInputProps> = forwardRef(
       onClickRightIcon,
       label,
       className,
+      mask,
       ...props
     },
     ref
@@ -54,8 +58,9 @@ export const TextInput: React.FC<TextInputProps> = forwardRef(
           <div className="mr-2" onClick={onClickLeftIcon}>
             {leftIcon}
           </div>
-          <input
+          <InputMask
             type={props.type}
+            mask={mask}
             value={props.value}
             onFocus={handleInputFocus}
             name={props.name}
