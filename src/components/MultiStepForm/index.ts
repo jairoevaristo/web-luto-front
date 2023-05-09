@@ -1,0 +1,6 @@
+export { SidebarSteps } from './SidebarSteps'
+export { Name } from './Name'
+export { Identification } from './Identification'
+export { Address } from './Address'
+export { Security } from './Security'
+export { FinishedSignUp } from './FinishedSignUp'

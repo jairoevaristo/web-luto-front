@@ -12,3 +12,13 @@ export interface UserInfo {
   number: number;
   password: string;
 };
+
+export interface ProductInfo {
+  id: number;
+  name: string;
+  price: number;
+  type: number;
+  quantity: number;
+  dimension: string;
+  image: string;
+};
