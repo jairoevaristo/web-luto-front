@@ -1,4 +1,3 @@
-import { AxiosError } from "axios";
 import { loginUserEndpoint } from "../config/endpoints/user";
 import { api, ApiAxiosRequest } from "../lib/axios"
 import { ResponseLoginUser } from "../types/ResponseLoginUser";

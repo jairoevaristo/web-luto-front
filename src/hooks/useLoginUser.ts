@@ -4,11 +4,13 @@ import { ApiAxiosRequest, ApiAxiosRequestError } from "../lib/axios";
 import { loginUserService, LoginUserRequest } from "../services/login-user";
 import { ResponseLoginUser } from "../types/ResponseLoginUser";
 import { useToast } from "./useToast";
+import { useAuth } from "../context/AuthProvider";
 
 export const useLoginUser = ({ email, password }: LoginUserRequest): UseQueryResult<ApiAxiosRequest<ResponseLoginUser>> => {
-   const { toastError, toastSuccess } = useToast();
+  const { toastError, toastSuccess } = useToast();
+  const { setAuthenticated } = useAuth();
 
-   return useQuery(
+  return useQuery(
     ['login-user'],
     () => loginUserService({ email, password }),
     {
@@ -16,11 +18,12 @@ export const useLoginUser = ({ email, password }: LoginUserRequest): UseQueryRes
       cacheTime: reactQueryCacheTime(),
       retry: false,
       onError: (error: ApiAxiosRequestError<ResponseLoginUser>) => {
-         toastError(error.response?.data.message)
+        toastError(error.response?.data.message)
       },
       onSuccess: (data) => {
-         toastSuccess(data?.message)
+        setAuthenticated(true);
+        toastSuccess(data?.message)
       }
     }
-   )
+  )
 }

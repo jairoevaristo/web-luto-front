@@ -70,7 +70,7 @@ export const UploadAvatar: React.FC<UploadAvatarProps> = ({
                   preview da imagem
                 </p>
                 <div className="h-16 w-16 rounded-md border-2 border-blue-200 shadow-lg flex items-center justify-center">
-                  <SpinnerLoading size="MEDIUM" color="blue-200" />
+                  <SpinnerLoading size="MEDIUM" theme="dark" />
                 </div>
               </div>
             </div>

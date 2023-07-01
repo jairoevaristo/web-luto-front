@@ -7,5 +7,12 @@ export { SidebarSteps } from "./MultiStepForm/SidebarSteps";
 export { GalleryImage } from "./GalleryImage";
 export { RenderConditional } from "./RenderConditional";
 export { ButtonStepForm } from "./ButtonStepForm";
-export { ControlledInput } from './ControlledTextInput'
-export { ControlledInputMask } from './ControllerInputMask'
+export { ControlledInput } from "./ControlledTextInput";
+export { ControlledInputMask } from "./ControllerInputMask";
+export { Header } from "./Header";
+export { ProductCard } from "./ProductCard";
+export { Dropdown } from "./Dropdown";
+export { AccountAvatar } from "./AccountAvatar";
+export { ProductDescription } from "./ProductDescription";
+export { PageLoader } from "./PageLoader";
+export { PrivateRouter } from "./PrivateRouter";
