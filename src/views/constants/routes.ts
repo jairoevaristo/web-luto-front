@@ -2,5 +2,6 @@ export enum PagesRoutes {
   signin = "/",
   signup = "/cadastro",
   allProducts = "/produtos",
-  productInformation = "/produto/:id"
+  productInformation = "/produto/:id",
+  registrationCard = "/usuario/cartao"
 };

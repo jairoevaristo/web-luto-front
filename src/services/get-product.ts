@@ -1,15 +1,20 @@
 import { getProductByIdEndpoint } from "../config/endpoints/product";
-import { api } from "../lib/axios";
+import { API_KEY } from "../constracts/strapi";
+import { api, strapiApi } from "../lib/axios";
 import { ResponseGetProduct } from "../types/ResponseGetProduct";
 
 export interface GetProductRequest {
-  productId: number;
+  productId: string;
 };
 
 export const getProductByIdService = async ({ productId }: GetProductRequest): Promise<ResponseGetProduct> => {
-  const { data } = await api.get<ResponseGetProduct>(
-    getProductByIdEndpoint(),
-    { params: { productId } }
+  const { data } = await strapiApi.get<ResponseGetProduct>(
+    getProductByIdEndpoint(productId),
+    {
+      headers: {
+        Authorization: 'Bearer ' + API_KEY
+      },
+    }
   );
 
   return data;

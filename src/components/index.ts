@@ -16,3 +16,5 @@ export { AccountAvatar } from "./AccountAvatar";
 export { ProductDescription } from "./ProductDescription";
 export { PageLoader } from "./PageLoader";
 export { PrivateRouter } from "./PrivateRouter";
+export { Cart } from "./Cart";
+export { CreditCard } from "./CreditCard";

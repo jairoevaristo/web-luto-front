@@ -3,10 +3,13 @@ import { Dropdown } from "../Dropdown";
 import { AccountAvatar } from "../AccountAvatar";
 import { useNavigate } from "react-router-dom";
 import { useGetUser } from "../../hooks/useGetUser";
+import { ShoppingBagIcon } from "@heroicons/react/24/outline";
+import { useCart } from "../../hooks/useCart";
 
 export const Header: React.FC = () => {
   const { data } = useGetUser();
   const navigate = useNavigate();
+  const { products, onToggleShowCart } = useCart()
 
   const formatUserName = (firstName?: string, lastName?: string) => {
     if (firstName && lastName)
@@ -42,7 +45,20 @@ export const Header: React.FC = () => {
           lastName={data?.entity.client.lastName}
         />
         <Dropdown />
+        {products.length > 0 && (
+          <button 
+            className="mx-4 relative cursor-pointer bg-none border-0"
+            onClick={onToggleShowCart}
+          >
+            <span className="text-xs text-white absolute bg-blue-600 h-4 w-4 flex items-center justify-center rounded-full -bottom-2 -left-1">
+              {products.length}
+            </span>
+            <ShoppingBagIcon className="text-black h-7 w-7" />
+          </button>
+        )}
       </div>
+
+
     </div>
   );
 };

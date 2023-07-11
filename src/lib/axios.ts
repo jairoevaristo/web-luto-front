@@ -4,6 +4,10 @@ export const api = axios.create({
     baseURL: 'https://webluto.azurewebsites.net/api'   
 });
 
+export const strapiApi = axios.create({
+  baseURL: 'http://localhost:1337/api'   
+});
+
 export const getAuthorization = (token: string) => {
   api.interceptors.request.use((config) => {
     config.headers.Authorization = `Bearer ${token}`;

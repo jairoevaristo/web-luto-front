@@ -1,8 +1,11 @@
 import React from "react";
 import * as Popover from "@radix-ui/react-popover";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { useNavigate } from "react-router-dom";
 
 export const Dropdown: React.FC = () => {
+  const navigate = useNavigate();
+
   const onClickProfileButton = () => {
     console.log("Perfil");
   };
@@ -15,10 +18,15 @@ export const Dropdown: React.FC = () => {
     location.reload();
   };
 
+  const onClickAddCardButton = () => {
+    navigate("/usuario/cartao");
+  };
+
   const buttonList = [
     { id: 1, name: "Perfil", onClick: onClickProfileButton },
-    { id: 2, name: "Minhas Compras", onClickMyShoppingButton },
-    { id: 3, name: "Sair", onClick: onClickLogoutButton },
+    { id: 2, name: "Minhas Compras", onClick: onClickMyShoppingButton },
+    { id: 3, name: "Cartão", onClick: onClickAddCardButton },
+    { id: 4, name: "Sair", onClick: onClickLogoutButton },
   ];
 
   return (

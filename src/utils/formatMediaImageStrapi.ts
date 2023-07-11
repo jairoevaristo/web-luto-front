@@ -1,0 +1,1 @@
+export const formatMediaImageStrapi = (url: string | undefined) => `http://localhost:1337${url}`

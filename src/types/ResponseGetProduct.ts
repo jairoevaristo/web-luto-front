@@ -1,11 +1,25 @@
 export interface ResponseGetProduct {
-  product: {
-    id: number;
-    name: string;
-    price: number;
-    type: number;
-    quantity: number;
-    dimension: string;
-    image: string;
-  };
+  data: {
+    id: number
+    attributes: {
+      name: string;
+      description: string, 
+      price: string, 
+      createdAt: string, 
+      updatedAt: string
+      publishedAt: string
+      image: {
+        data: {
+          id: number,
+          attributes: {
+            formats: {
+              thumbnail: {
+                url: string
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

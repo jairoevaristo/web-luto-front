@@ -1,8 +1,9 @@
 import React from "react";
 import { capitalizeFirstLetter } from "../../utils/format";
-import { ArrowSmallLeftIcon, ChevronDownIcon, ChevronLeftIcon } from "@heroicons/react/24/outline";
+import { ArrowSmallLeftIcon, ChevronDownIcon, ChevronLeftIcon, MinusIcon, PlusIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import { maskProductType, maskReal } from "../../utils/masks";
+import { useCart } from "../../hooks/useCart";
 
 interface ProductDescriptionProps {
   price?: number;
@@ -11,6 +12,7 @@ interface ProductDescriptionProps {
   quantity?: number;
   type?: number;
   dimension?: string;
+  id: number;
 };
 
 export const ProductDescription: React.FC<ProductDescriptionProps> = ({
@@ -19,9 +21,12 @@ export const ProductDescription: React.FC<ProductDescriptionProps> = ({
   image,
   quantity = 0,
   type = 0,
+  id,
   dimension,
 }) => {
   const [ isDetails, setDetails ] = React.useState(false);
+  const [ quantityProduct, setQuantityProduct ] = React.useState(1);
+  const { onAddCartProduct } = useCart()
 
   return (
     <div className="grid grid-cols-[1fr_1fr] gap-[20px] mt-[130px] mb-[20px] relative px-5">
@@ -42,6 +47,30 @@ export const ProductDescription: React.FC<ProductDescriptionProps> = ({
         <span className="font-light text-xs mt-3">
           {quantity} {quantity > 1 ? "disponíveis" : "disponível"}
         </span>
+        <span className="mt-2 font-normal text-gray-500 text-sm">
+          Quantidade: {quantityProduct}x
+        </span>
+        <div className="flex items-center justify-center border border-gray-300 bg-white shadow-xs mt-3 p-1 rounded gap-2">
+          <button className="flex items-center justify-center" onClick={() => setQuantityProduct((prevState) => {
+            if (prevState > 0 && prevState < quantity) {
+              return prevState + 1
+            }
+
+            return prevState;
+          })}>
+            <PlusIcon className="text-black h-4 w-4" />
+          </button>
+          <MinusIcon className="text-black h-4 w-4 rotate-90" />
+          <button className="flex items-center justify-center"onClick={() => setQuantityProduct((prevState) => {
+            if (prevState > 1) {
+              return prevState - 1
+            }
+
+            return prevState;
+          })}>
+            <MinusIcon className="text-black h-4 w-4" />
+          </button>
+        </div>
         <details className="w-full">
           <summary className="px-1 cursor-pointer list-none mt-20" onClick={() => setDetails(!isDetails)}>
             <div className="flex flex-row justify-between items-center">
@@ -54,9 +83,17 @@ export const ProductDescription: React.FC<ProductDescriptionProps> = ({
           </p>
         </details>
         <button
-          className="w-full p-[5px] bg-[#333] mt-auto font-[500] text-[#FFFFFF] rounded-[5px] hover:opacity-90"
+          className="w-full p-3 bg-[#333] mt-auto font-[500] text-[#FFFFFF] rounded-[5px] hover:opacity-90"
+          onClick={() => onAddCartProduct({
+            price,
+            product_image_url: image!,
+            product_name: name!,
+            product_type: String(type)!,
+            productId: id,
+            quantity: quantityProduct
+          })}
         >
-          Comprar
+          Adicionar ao carinho
         </button>
       </div>
     </div>

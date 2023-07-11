@@ -15,6 +15,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   img,
   onClick,
 }) => {
+
   return (
     <div className="bg-white flex justify-between items-center w-[200px] h-[300px] p-[20px] flex-col rounded-[4px] hover:shadow-lg transition-shadow">
       <div className="bg-white w-[160px] relative h-[160px] flex justify-center items-center rounded-[4px]">
