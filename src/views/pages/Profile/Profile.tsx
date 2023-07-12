@@ -19,7 +19,7 @@ export const Profile: React.FC = () => {
   const userInitials: string = nameInitials(data?.entity.client.firstName, data?.entity.client.lastName);
   
   return (
-    <PageLoader condition={!!isLoading && !!data}>
+    <PageLoader condition={true}>
       <Header />
       <div className="bg-white px-16 py-12 rounded-2xl w-1/2 h-max flex flex-col items-center mt-[100px] mb-[10px] shadow-xl">
         <div className="w-full flex flex-row items-start">

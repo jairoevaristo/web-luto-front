@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Header } from "../../../components/Header";
-import { PageLoader, TextInput } from "../../../components";
+import { PageLoader, TextInput, Ticket } from "../../../components";
 import {
   CheckCircleIcon
 } from "@heroicons/react/24/outline";
@@ -40,31 +40,12 @@ export const SucessPayment: React.FC = () => {
   return (
     <PageLoader condition={loading}>
       <Header/>
-      <div className="bg-transparent px-16 py-12 rounded-2xl w-1/2 flex flex-col items-center mt-[100px] mb-[30px]">
-        <CheckCircleIcon className="text-green-500 w-[200px] h-[200px]"/>
-        <h2 className="mt-7 font-semibold text-xl">Compra realizada com sucesso!</h2>
-        <p className="mt-2 text-sm">Entraremos em contato via WhatsApp: (88) 3691-2020</p>
-        <div className="space-y-5 w-full mt-7">
-          {products.map(product => (
-              <div className="px-4 py-5 flex items-center justify-between bg-white border-b border-gray-200">
-                <div className="flex items-center gap-2">
-                  <img src={product.product_image_url} className="w-10 h-10" />
-                  <div className="flex flex-col">
-                    <span>{product.product_name}</span>
-                    <span>{formatCurrency(product.price)}</span>
-                  </div>
-                </div>
-                <div className="flex flex-col justify-center">
-                  <span>{product.quantity}x</span>
-                </div>
-              </div>
-          ))}
-        </div>
-        {total !== 0 ? <div className="w-full flex justify-end mt-2">
-          <span className="text-lg font-semibold">Total: {formatCurrency(total)}</span>
-        </div> : <div className="w-full flex justify-center mt-2">
-          <span className="text-sm font-semibold">Nenhum produto cadastrado no carrinho.</span>
-        </div>}
+      <div className="bg-transparent rounded-2xl w-1/2 flex flex-col items-center mt-[100px] mb-[30px]">
+        <CheckCircleIcon className="text-green-500 w-[100px] h-[100px] mb-2"/>
+        <h2 className="mt-2 font-semibold text-xl">Compra realizada com sucesso!</h2>
+        <p className="mt-2 font-medium text-sm">Entraremos em contato via WhatsApp: (88) 3691-2020</p>
+        <p className="mt-2 text-sm mb-7">(Seu comprovante abaixo)</p>
+        <Ticket />
       </div>
     </PageLoader>
   );

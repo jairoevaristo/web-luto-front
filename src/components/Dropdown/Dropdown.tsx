@@ -21,10 +21,15 @@ export const Dropdown: React.FC = () => {
     navigate("/usuario/cartao");
   };
 
+  const onClickMyShoppingButton = () => {
+    navigate("/usuario/my-shopping");
+  };
+
   const buttonList = [
     { id: 1, name: "Perfil", onClick: onClickProfileButton },
-    { id: 2, name: "Cartão", onClick: onClickAddCardButton },
-    { id: 3, name: "Sair", onClick: onClickLogoutButton },
+    { id: 2, name: "Minhas compras", onClick: onClickMyShoppingButton },
+    { id: 3, name: "Cartão", onClick: onClickAddCardButton },
+    { id: 4, name: "Sair", onClick: onClickLogoutButton },
   ];
 
   return (

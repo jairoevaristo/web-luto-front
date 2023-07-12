@@ -5,5 +5,6 @@ export enum PagesRoutes {
   productInformation = "/produto/:id",
   registrationCard = "/usuario/cartao",
   sucessPayment = "/usuario/pagamento",
-  profile = "/usuario/perfil"
+  profile = "/usuario/perfil",
+  myShopping = "usuario/my-shopping"
 };

@@ -51,7 +51,6 @@ export const Cart: React.FC = () => {
             <button
                 className="w-full p-3 bg-[#333] mt-10 font-[500] text-[#FFFFFF] rounded-[5px] hover:opacity-90"
                 onClick={() => {
-                  localStorage.setItem("products", JSON.stringify(products))
                   window.location.href = "http://localhost:5173/usuario/pagamento";
                 }}
             >

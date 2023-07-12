@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, BrowserRouter, Route, useNavigate } from "react-router-dom";
-import { ListProducts, PagesRoutes, ProductDetails, Profile, RegistrationCard, SignIn, SignUp, SucessPayment } from "../../views";
+import { ListProducts, MyShopping, PagesRoutes, ProductDetails, Profile, RegistrationCard, SignIn, SignUp, SucessPayment } from "../../views";
 import { Cart } from "../Cart";
 import { PrivateRouter } from "../PrivateRouter";
 
@@ -38,6 +38,12 @@ export const Router: React.FC = () => {
           <Route path={PagesRoutes.profile} element={
               //<PrivateRouter>
                 <Profile />
+              //</PrivateRouter>
+            } 
+          />
+          <Route path={PagesRoutes.myShopping} element={
+              //<PrivateRouter>
+                <MyShopping />
               //</PrivateRouter>
             } 
           />

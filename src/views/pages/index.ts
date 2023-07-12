@@ -5,3 +5,4 @@ export { ProductDetails } from "./ProductDetails";
 export { SucessPayment } from "./SucessPayment";
 export { RegistrationCard } from "./RegistrationCard";
 export { Profile } from "./Profile";
+export { MyShopping } from "./MyShopping";

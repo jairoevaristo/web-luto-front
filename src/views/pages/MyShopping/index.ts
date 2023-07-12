@@ -1,0 +1,1 @@
+export { MyShopping } from "./MyShopping";
