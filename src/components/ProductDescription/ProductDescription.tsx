@@ -26,7 +26,22 @@ export const ProductDescription: React.FC<ProductDescriptionProps> = ({
 }) => {
   const [ isDetails, setDetails ] = React.useState(false);
   const [ quantityProduct, setQuantityProduct ] = React.useState(1);
-  const { onAddCartProduct } = useCart()
+  const { onAddCartProduct, products } = useCart()
+
+  const onClickAddCart = () => {
+    const isProductsExists = products.filter((element) => element.productId === id);
+
+    if(isProductsExists.length <= 0) {
+      onAddCartProduct({
+        price,
+        product_image_url: image!,
+        product_name: name!,
+        product_type: String(type)!,
+        productId: id,
+        quantity: quantityProduct
+      })
+    }
+  }
 
   return (
     <div className="grid grid-cols-[1fr_1fr] gap-[20px] mt-[130px] mb-[20px] relative px-5">
@@ -84,14 +99,7 @@ export const ProductDescription: React.FC<ProductDescriptionProps> = ({
         </details>
         <button
           className="w-full p-3 bg-[#333] mt-auto font-[500] text-[#FFFFFF] rounded-[5px] hover:opacity-90"
-          onClick={() => onAddCartProduct({
-            price,
-            product_image_url: image!,
-            product_name: name!,
-            product_type: String(type)!,
-            productId: id,
-            quantity: quantityProduct
-          })}
+          onClick={onClickAddCart}
         >
           Adicionar ao carinho
         </button>

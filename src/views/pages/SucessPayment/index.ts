@@ -1,0 +1,1 @@
+export { SucessPayment } from "./SucessPayment";

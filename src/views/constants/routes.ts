@@ -3,5 +3,7 @@ export enum PagesRoutes {
   signup = "/cadastro",
   allProducts = "/produtos",
   productInformation = "/produto/:id",
-  registrationCard = "/usuario/cartao"
+  registrationCard = "/usuario/cartao",
+  sucessPayment = "/usuario/pagamento",
+  profile = "/usuario/perfil"
 };

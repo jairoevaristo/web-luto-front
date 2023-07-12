@@ -1,9 +1,8 @@
 import React from "react";
-import { Routes, BrowserRouter, Route } from "react-router-dom";
-import { ListProducts, PagesRoutes, ProductDetails, SignIn, SignUp } from "../../views";
+import { Routes, BrowserRouter, Route, useNavigate } from "react-router-dom";
+import { ListProducts, PagesRoutes, ProductDetails, Profile, RegistrationCard, SignIn, SignUp, SucessPayment } from "../../views";
 import { Cart } from "../Cart";
 import { PrivateRouter } from "../PrivateRouter";
-import { RegistrationCard } from "../../views/pages/RegistrationCard";
 
 export const Router: React.FC = () => {
   return (
@@ -30,9 +29,21 @@ export const Router: React.FC = () => {
               //</PrivateRouter>
             } 
           />
+          <Route path={PagesRoutes.sucessPayment} element={
+              //<PrivateRouter>
+                <SucessPayment />
+              //</PrivateRouter>
+            } 
+          />
+          <Route path={PagesRoutes.profile} element={
+              //<PrivateRouter>
+                <Profile />
+              //</PrivateRouter>
+            } 
+          />
         </Routes>
+        <Cart/>
       </BrowserRouter>
-      <Cart />
    </>
   );
 };

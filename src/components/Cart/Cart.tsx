@@ -1,9 +1,16 @@
 import { TrashIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useCart } from "../../hooks/useCart"
 import { formatCurrency } from "../../utils/format";
+import { useMemo } from "react";
 
 export const Cart: React.FC = () => {
     const { products, onRemoveCartProduct, onToggleShowCart, showCart } = useCart();
+    const total = useMemo(() => {
+      return products.reduce(
+        (arr, item) => (arr += item.price * item.quantity),
+        0
+      );
+    }, [products]);
 
     if (!showCart) {
         return null;
@@ -38,8 +45,15 @@ export const Cart: React.FC = () => {
                     )
                 })}
             </div>
+            <div className="w-full flex justify-end mt-2">
+              <span className=" text-lg font-semibold">Total: {formatCurrency(total)}</span>
+            </div>
             <button
                 className="w-full p-3 bg-[#333] mt-10 font-[500] text-[#FFFFFF] rounded-[5px] hover:opacity-90"
+                onClick={() => {
+                  localStorage.setItem("products", JSON.stringify(products))
+                  window.location.href = "http://localhost:5173/usuario/pagamento";
+                }}
             >
                 Finalizar compra
             </button>
