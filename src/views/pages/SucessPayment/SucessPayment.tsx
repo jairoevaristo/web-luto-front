@@ -41,7 +41,7 @@ export const SucessPayment: React.FC = () => {
     <PageLoader condition={loading}>
       <Header/>
       <div className="bg-transparent px-16 py-12 rounded-2xl w-1/2 flex flex-col items-center mt-[100px] mb-[30px]">
-        <CheckCircleIcon className="w-[200px] h-[200px]"/>
+        <CheckCircleIcon className="text-green-500 w-[200px] h-[200px]"/>
         <h2 className="mt-7 font-semibold text-xl">Compra realizada com sucesso!</h2>
         <p className="mt-2 text-sm">Entraremos em contato via WhatsApp: (88) 3691-2020</p>
         <div className="space-y-5 w-full mt-7">
