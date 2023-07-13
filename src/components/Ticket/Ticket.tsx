@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { ResponseCreateSale } from "../../types/ResponseCreateSale";
 import { useGetUser } from "../../hooks/useGetUser";
+import { formatCurrency } from "../../utils/format";
 
 type TypeProps = {
   data: ResponseCreateSale 
@@ -22,18 +23,20 @@ export const Ticket: React.FC<TypeProps> = ({ data }) => {
           </div>
           {isUrlValid && (<div className="text-gray-700">
               <div className="font-bold text-xl mb-2">Pedido</div>
-              <div className="text-sm">Data da compra: {data?.purchaseDate?.toDateString()}</div>
-              <div className="text-sm">Pedido ID # {data?.saleId}</div>
+              <div className="text-sm">Data da compra: {data?.entity.purchaseDate}</div>
+              <div className="text-sm">Pedido ID # {data?.entity.saleId}</div>
           </div>)}
       </div>
       <div className="border-b-2 border-gray-300 pb-8 mb-8">
           <h2 className="text-2xl font-bold mb-4">Dados Pessoais:</h2>
           <div className="text-gray-700 mb-2">{dataUser?.entity.client.firstName} {dataUser?.entity.client.lastName}</div>
-          <div className="text-gray-700 mb-2">{dataUser?.entity.client.adress.addressLine}</div>
-          <div className="text-gray-700 mb-2">{dataUser?.entity.client.adress.neighborhood}, {dataUser?.entity.client.adress.addressLineNumber}</div>
+          <div className="text-gray-700 mb-2">{dataUser?.entity.client.address.addressLine}</div>
+          <div className="text-gray-700 mb-2">{dataUser?.entity.client.address.neighborhood}, {dataUser?.entity.client.address.addressLineNumber}</div>
           <div className="text-gray-700">{dataUser?.entity.client.email}</div>
       </div>
-      <table className="w-full text-left mb-8">
+      {
+        data?.entity.products.length>0 && (
+          <table className="w-full text-left mb-8">
           <thead>
               <tr className="border-b">
                   <th className="text-gray-700 font-bold uppercase py-2"></th>
@@ -44,7 +47,7 @@ export const Ticket: React.FC<TypeProps> = ({ data }) => {
               </tr>
           </thead>
           <tbody>
-            {data.products.map((product) => (<tr className="border-b">
+            {data?.entity.products?.map((product) => (<tr className="border-b">
               <td className="py-4 text-gray-700">
                 <img className="w-14" src={product.image} alt="" />
               </td>
@@ -54,16 +57,22 @@ export const Ticket: React.FC<TypeProps> = ({ data }) => {
                 </div>
               </td>
               <td className="py-4 text-gray-700 text-center">1</td>
-              <td className="py-4 text-gray-700">{product.price}</td>
-              <td className="py-4 text-gray-700">{product.price * product.quantity}</td>
+              <td className="py-4 text-gray-700">R$ {product.price},00</td>
+              <td className="py-4 text-gray-700">R$ {product.price * product.quantity},00</td>
             </tr>))}
         </tbody>
-    </table>
+    </table>          
+        )
+      }
     
-    <div className="flex justify-end mb-8">
-        <div className="text-gray-700 mr-2">Total:</div>
-        <div className="text-gray-700 font-bold text-md">{data.totalValue}</div>
-    </div>
+      {
+        data?.entity.totalValue && (
+          <div className="flex justify-end mb-8">
+          <div className="text-gray-700 mr-2">Total:</div>
+          <div className="text-gray-700 font-bold text-md">R$ {data?.entity.totalValue},00</div>
+          </div>          
+        )
+      }
     <div className="border-t-2 border-gray-300 pt-8 mb-8">
         <div className="text-gray-700 leading-normal mb-2">Nossa loja online oferece uma experiência conveniente e discreta, permitindo que você explore nosso catálogo completo de caixões no conforto da sua casa.  Além disso, nossa equipe de atendimento ao cliente está sempre disponível para responder a quaisquer perguntas ou fornecer assistência personalizada durante todo o processo de compra.</div>
     </div>

@@ -41,17 +41,17 @@ export const Profile: React.FC = () => {
         </div>
         <div className="w-full grid grid-cols-[1fr_1fr] gap-[10px] mt-7">
           <span className="text-lg"><strong className="font-semibold">CPF:</strong> {data?.entity.client.cpf}</span>
-          <span className="text-lg"><strong className="font-semibold">Data de Nascimento:</strong> {data?.entity.client.birthDate}</span>
+          <span className="text-lg"><strong className="font-semibold">Data de Nascimento:</strong> {data?.entity.client.birthDate!}</span>
           <span className="text-lg"><strong className="font-semibold">Telefone:</strong> {data?.entity.client.phone}</span>
         </div>
         <div className="w-full flex flex-row items-start mt-7 opacity-80">
           <h1 className="font-semibold text-black text-xl flex flex-row items-center"><ArrowSmallRightIcon className="h-6 w-6 mr-2"/>Endereço:</h1>
         </div>
         <div className="w-full grid grid-cols-[1fr_1fr] gap-[10px] mt-5">
-          <span className="text-lg"><strong className="font-semibold">CEP:</strong> {data?.entity.client.adress.zipCode}</span>
-          <span className="text-lg"><strong className="font-semibold">Rua:</strong> {data?.entity.client.adress.addressLine}</span>
-          <span className="text-lg"><strong className="font-semibold">Número:</strong> {data?.entity.client.adress.addressLineNumber}</span>
-          <span className="text-lg"><strong className="font-semibold">Bairro:</strong> {data?.entity.client.adress.neighborhood}</span>
+          <span className="text-lg"><strong className="font-semibold">CEP:</strong> {data?.entity.client.address?.zipCode}</span>
+          <span className="text-lg"><strong className="font-semibold">Rua:</strong> {data?.entity.client.address?.addressLine}</span>
+          <span className="text-lg"><strong className="font-semibold">Número:</strong> {data?.entity.client.address?.addressLineNumber}</span>
+          <span className="text-lg"><strong className="font-semibold">Bairro:</strong> {data?.entity.client.address?.neighborhood}</span>
         </div>
         <button
           className="w-[250px] flex justify-center p-2 bg-[#333] rounded-[4px] mt-10 text-white hover:opacity-75"

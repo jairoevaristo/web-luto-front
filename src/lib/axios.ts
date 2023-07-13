@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 
 export const api = axios.create({
-    baseURL: 'https://webluto.azurewebsites.net/api'   
+    baseURL: 'https://localhost:7294/api'   
 });
 
 export const strapiApi = axios.create({

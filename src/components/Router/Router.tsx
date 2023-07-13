@@ -12,39 +12,39 @@ export const Router: React.FC = () => {
           <Route path={PagesRoutes.signin} element={<SignIn />} />
           <Route path={PagesRoutes.signup} element={<SignUp />} />
           <Route path={PagesRoutes.allProducts} element={
-              //<PrivateRouter>
+              <PrivateRouter>
                 <ListProducts />
-            // </PrivateRouter>
+             </PrivateRouter>
             } 
           />
           <Route path={PagesRoutes.productInformation} element={
-              //<PrivateRouter>
+              <PrivateRouter>
                 <ProductDetails />
-              //</PrivateRouter>
+             </PrivateRouter>
             } 
           />
           <Route path={PagesRoutes.registrationCard} element={
-              //<PrivateRouter>
+              <PrivateRouter>
                 <RegistrationCard />
-              //</PrivateRouter>
+              </PrivateRouter>
             } 
           />
           <Route path={PagesRoutes.sucessPayment} element={
-              //<PrivateRouter>
+              <PrivateRouter>
                 <SucessPayment />
-              //</PrivateRouter>
+              </PrivateRouter>
             } 
           />
           <Route path={PagesRoutes.profile} element={
-              //<PrivateRouter>
+              <PrivateRouter>
                 <Profile />
-              //</PrivateRouter>
+              </PrivateRouter>
             } 
           />
           <Route path={PagesRoutes.myShopping} element={
-              //<PrivateRouter>
+              <PrivateRouter>
                 <MyShopping />
-              //</PrivateRouter>
+              </PrivateRouter>
             } 
           />
         </Routes>

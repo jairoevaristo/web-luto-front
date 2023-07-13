@@ -1,6 +1,6 @@
 export interface ResponseGetUser {
   client: {
-      adress: Adress;
+      address: Address;
       avatar: string;
       birthDate: string;
       cpf: string;
@@ -14,7 +14,7 @@ export interface ResponseGetUser {
   }
 };
 
-interface Adress {
+interface Address {
   zipCode: string
   addressLine: string;
   addressLineNumber: string;

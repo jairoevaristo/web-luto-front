@@ -11,7 +11,7 @@ import { useCreateSale } from "../../../hooks/useCreateSale";
 export const ProductDetails: React.FC = () => {
   const params = useParams<{ id: string }>()
   const { card } = useCreditCard();
-  const { products } = useCart();
+  const { products, onClearCart } = useCart();
   const total = useMemo(() => {
     return products.reduce(
       (arr, item) => (arr += item.price * item.quantity),
@@ -56,8 +56,9 @@ export const ProductDetails: React.FC = () => {
       />
       <Cart isLoading={isLoadingSale} onClick={() => {
         refetch()
-        if(!!data) {
-          navigate("/usuario/pagamento", {state: dataSale?.entity});
+        if(!!dataSale) {
+          onClearCart();
+          navigate("/usuario/pagamento", {state: dataSale});
         }
       }} />
     </PageLoader>

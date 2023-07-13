@@ -5,9 +5,9 @@ import { useGetAllSale } from "../../../hooks/useGetAllSale";
 
 export const MyShopping: React.FC = () => {
   const { data, isLoading } = useGetAllSale();
-  
-  return (
-    <PageLoader condition={isLoading}>
+  console.log(data);
+  return (    
+    <PageLoader condition={!!data}>
       <Header />
       <div className="w-auto bg-transparent rounded-2xl flex flex-col items-center mt-[100px] mb-[30px]">
         <div className="w-full flex flex-row items-start mb-5">
