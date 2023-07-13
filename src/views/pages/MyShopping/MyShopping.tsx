@@ -1,22 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Header } from "../../../components/Header";
 import { PageLoader, Ticket } from "../../../components";
+import { useGetAllSale } from "../../../hooks/useGetAllSale";
 
 export const MyShopping: React.FC = () => {
-  const [loading, setLoaging] = useState(false);
-
-  useEffect(() => {
-    setLoaging(true);
-  }, []);
+  const { data, isLoading } = useGetAllSale();
   
   return (
-    <PageLoader condition={loading}>
+    <PageLoader condition={isLoading}>
       <Header />
       <div className="w-auto bg-transparent rounded-2xl flex flex-col items-center mt-[100px] mb-[30px]">
         <div className="w-full flex flex-row items-start mb-5">
           <h1 className="font-semibold text-black text-xl">Minhas Compras:</h1>
         </div>
-        <Ticket />
+        <Ticket data={data!} />
       </div>
     </PageLoader>
   );

@@ -45,7 +45,7 @@ export const SucessPayment: React.FC = () => {
         <h2 className="mt-2 font-semibold text-xl">Compra realizada com sucesso!</h2>
         <p className="mt-2 font-medium text-sm">Entraremos em contato via WhatsApp: (88) 3691-2020</p>
         <p className="mt-2 text-sm mb-7">(Seu comprovante abaixo)</p>
-        <Ticket />
+        <Ticket data={location.state} />
       </div>
     </PageLoader>
   );

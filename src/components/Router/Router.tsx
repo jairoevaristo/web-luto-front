@@ -48,7 +48,6 @@ export const Router: React.FC = () => {
             } 
           />
         </Routes>
-        <Cart/>
       </BrowserRouter>
    </>
   );
